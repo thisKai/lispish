@@ -6,5 +6,6 @@ project(lispish)
 # This tells CMake not to define WIN32 when building with Cygwin. This is the preferred option and for us it doesn’t make a difference either way so we will use the recommended setting.
 set(CMAKE_LEGACY_CYGWIN_WIN32 0)
 
+include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 
 add_executable(lispish main.cc)
