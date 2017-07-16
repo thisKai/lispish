@@ -9,5 +9,7 @@ set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_LEGACY_CYGWIN_WIN32 0)
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
+include_directories(/usr/include/readline)
 
 add_executable(lispish main.cc)
+target_link_libraries(lispish readline)
