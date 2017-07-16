@@ -1,3 +1,6 @@
+# BUILD TARGET
+build/
+
 
 # Created by https://www.gitignore.io/api/c++,kate,cmake,kdevelop4,visualstudio,visualstudiocode
 
