@@ -11,7 +11,7 @@ std::vector<Token> Lexer::lex()
     m_iterator = m_input.begin();
     while(not_eof()) {
         // if char is a newline
-        if(*m_iterator == '\n')
+        if(is('\n'))
         {
             increment();
             increment_line();
