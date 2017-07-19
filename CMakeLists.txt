@@ -10,6 +10,14 @@ set(CMAKE_LEGACY_CYGWIN_WIN32 0)
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 include_directories(/usr/include/readline)
+find_package(Boost)
 
-add_executable(lispish main.cc)
-target_link_libraries(lispish readline)
+add_subdirectory(lexer)
+
+file(GLOB SOURCES "*.cc")
+
+if(Boost_FOUND)
+    include_directories(${Boost_INCLUDE_DIRS})
+    add_executable(lispish ${SOURCES})
+    target_link_libraries(lispish lispish_lexer readline ${Boost_LIBRARIES})
+endif()
