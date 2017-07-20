@@ -1,6 +1,22 @@
 #include "parser/node.hh"
 
 Node::Node() : m_type(NodeType::Empty) {}
+Node::Node(const Node& original)
+{
+    m_type = original.m_type;
+    switch(m_type)
+    {
+        case NodeType::Atom:
+            atom_unsafe(new Atom(*original.atom_unsafe()));
+            break;
+        case NodeType::List:
+            list_unsafe(new List(*original.list_unsafe()));
+            break;
+        default:
+            m_type = NodeType::Empty;
+            break;
+    }
+}
 Node::Node(Atom* content) : m_type(NodeType::Atom), m_content(content) {}
 Node::Node(List* content) : m_type(NodeType::List), m_content(content) {}
 Node::~Node()
@@ -29,7 +45,7 @@ std::string Node::to_string()
     }
 }
 
-Atom* Node::atom_unsafe()
+Atom* Node::atom_unsafe() const
 {
     return (Atom*)m_content;
 }
@@ -63,7 +79,7 @@ void Node::free_atom_unsafe()
     delete old_atom;
 }
 
-List* Node::list_unsafe()
+List* Node::list_unsafe() const
 {
     return (List*)m_content;
 }
