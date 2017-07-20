@@ -18,7 +18,7 @@ std::string List::to_string()
     return stream.str();
 }
 
-List& List::operator<<(const Atom& rhs)
+List& List::operator<<(Atom rhs)
 {
     m_items.push_back(rhs);
     return *this;

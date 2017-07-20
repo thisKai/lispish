@@ -13,7 +13,7 @@ private:
 public:
     std::string to_string();
 
-    List& operator<<(const Atom&);
+    List& operator<<(Atom);
 };
 
 #endif
