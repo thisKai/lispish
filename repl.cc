@@ -12,8 +12,14 @@
 ReplResult repl(const char prompt[])
 {
     std::string line;
-    while(line != "exit") {
+    while(true)
+    {
         line = readline(prompt);
+        if(line == "exit")
+        {
+            std::cout << "Exiting" << std::endl;
+            break;
+        }
 
         Lexer lexer(line);
         std::vector<Token> tokens = lexer.lex();
