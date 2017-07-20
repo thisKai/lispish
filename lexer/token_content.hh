@@ -1,10 +1,10 @@
-#ifndef __Lispish_Header_LEXER_TOKEN_CONTENT
-#define __Lispish_Header_LEXER_TOKEN_CONTENT
+#ifndef __Lispish_Header_LEXER_LEXEME
+#define __Lispish_Header_LEXER_LEXEME
 
 #include <string>
 #include <boost/variant.hpp>
 
-class TokenContent
+class Lexeme
 {
 private:
     enum
@@ -18,14 +18,14 @@ private:
     boost::variant<bool, long long, long double, std::string> m_content;
 
 public:
-    TokenContent();
-    TokenContent(long long);
-    TokenContent(long double);
-    TokenContent(std::string);
+    Lexeme();
+    Lexeme(long long);
+    Lexeme(long double);
+    Lexeme(std::string);
 
-    TokenContent& operator=(const long long&);
-    TokenContent& operator=(const long double&);
-    TokenContent& operator=(const std::string&);
+    Lexeme& operator=(const long long&);
+    Lexeme& operator=(const long double&);
+    Lexeme& operator=(const std::string&);
 
     std::string to_string(bool = false);
 

@@ -26,8 +26,8 @@ TokenType check_paren(char ch)
 
 Token::Token() : m_type(TokenType::Unknown) {}
 Token::Token(TokenType type) : m_type(type) {}
-Token::Token(TokenContent lexeme) : m_lexeme(lexeme) {}
-Token::Token(TokenType type, TokenContent lexeme) : m_type(type), m_lexeme(lexeme) {}
+Token::Token(Lexeme lexeme) : m_lexeme(lexeme) {}
+Token::Token(TokenType type, Lexeme lexeme) : m_type(type), m_lexeme(lexeme) {}
 
 std::string Token::to_string()
 {
@@ -57,11 +57,11 @@ void Token::type(TokenType value)
     m_type = value;
 }
 
-TokenContent Token::lexeme()
+Lexeme Token::lexeme()
 {
     return m_lexeme;
 }
-void Token::lexeme(TokenContent value)
+void Token::lexeme(Lexeme value)
 {
     m_lexeme = value;
 }

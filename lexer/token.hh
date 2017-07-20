@@ -22,20 +22,20 @@ class Token
 private:
     TokenType m_type;
 
-    TokenContent m_lexeme;
+    Lexeme m_lexeme;
 public:
     Token();
     Token(TokenType);
-    Token(TokenContent);
-    Token(TokenType, TokenContent);
+    Token(Lexeme);
+    Token(TokenType, Lexeme);
 
     std::string to_string();
 
     TokenType type();
     void type(TokenType);
 
-    TokenContent lexeme();
-    void lexeme(TokenContent);
+    Lexeme lexeme();
+    void lexeme(Lexeme);
 };
 
 #endif

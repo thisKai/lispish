@@ -110,7 +110,7 @@ void Lexer::try_parse_number()
     std::string number_str = digit_stream.str();
 
     TokenType type;
-    TokenContent lexeme;
+    Lexeme lexeme;
     if(is_float)
     {
         type = TokenType::Real;

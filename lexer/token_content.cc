@@ -2,20 +2,20 @@
 
 #include <sstream>
 
-TokenContent::TokenContent()
+Lexeme::Lexeme()
 {
     m_type = Empty;
 }
 
-TokenContent::TokenContent(long long l_integer)
+Lexeme::Lexeme(long long l_integer)
 {
     integer_unsafe(l_integer);
 }
-TokenContent::TokenContent(long double l_real)
+Lexeme::Lexeme(long double l_real)
 {
     real_unsafe(l_real);
 }
-TokenContent::TokenContent(std::string l_other)
+Lexeme::Lexeme(std::string l_other)
 {
     other_unsafe(l_other);
 }
@@ -29,7 +29,7 @@ std::string token_content_string(const char left_delimiter[], T content, const c
 
     return stream.str();
 }
-std::string TokenContent::to_string(bool show_delimiters)
+std::string Lexeme::to_string(bool show_delimiters)
 {
     switch(m_type)
     {
@@ -42,43 +42,43 @@ std::string TokenContent::to_string(bool show_delimiters)
     }
 }
 
-bool TokenContent::is_integer() { return m_type == Integer; }
-bool TokenContent::is_real() { return m_type == Real; }
-bool TokenContent::is_other() { return m_type == Other; }
+bool Lexeme::is_integer() { return m_type == Integer; }
+bool Lexeme::is_real() { return m_type == Real; }
+bool Lexeme::is_other() { return m_type == Other; }
 
-long long TokenContent::integer_unsafe() { return boost::get<long long>(m_content); }
-void TokenContent::integer_unsafe(long long value)
+long long Lexeme::integer_unsafe() { return boost::get<long long>(m_content); }
+void Lexeme::integer_unsafe(long long value)
 {
     m_type = Integer;
     m_content = value;
 }
 
-long double TokenContent::real_unsafe() { return boost::get<long double>(m_content); }
-void TokenContent::real_unsafe(long double l_real)
+long double Lexeme::real_unsafe() { return boost::get<long double>(m_content); }
+void Lexeme::real_unsafe(long double l_real)
 {
     m_content = l_real;
     m_type = Real;
 }
 
-std::string TokenContent::other_unsafe() { return boost::get<std::string>(m_content); }
-void TokenContent::other_unsafe(std::string l_other)
+std::string Lexeme::other_unsafe() { return boost::get<std::string>(m_content); }
+void Lexeme::other_unsafe(std::string l_other)
 {
     m_content = l_other;
     m_type = Other;
 }
 
 
-TokenContent& TokenContent::operator=(const long long& l_integer)
+Lexeme& Lexeme::operator=(const long long& l_integer)
 {
     integer_unsafe(l_integer);
     return *this;
 }
-TokenContent& TokenContent::operator=(const long double& l_real)
+Lexeme& Lexeme::operator=(const long double& l_real)
 {
     real_unsafe(l_real);
     return *this;
 }
-TokenContent& TokenContent::operator=(const std::string& l_other)
+Lexeme& Lexeme::operator=(const std::string& l_other)
 {
     other_unsafe(l_other);
     return *this;

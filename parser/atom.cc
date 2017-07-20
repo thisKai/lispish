@@ -1,6 +1,6 @@
 #include "parser/atom.hh"
 
-Atom::Atom(TokenContent content) : m_content(content) {};
+Atom::Atom(Lexeme content) : m_content(content) {};
 
 std::string Atom::to_string()
 {
