@@ -1,5 +1,5 @@
 #include "lexer/lexer.hh"
-#include "lexer/token_content.hh"
+#include "lexer/lexeme.hh"
 
 #include <cctype>
 

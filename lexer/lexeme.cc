@@ -1,4 +1,4 @@
-#include "lexer/token_content.hh"
+#include "lexer/lexeme.hh"
 
 #include <sstream>
 

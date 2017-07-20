@@ -1,7 +1,7 @@
 #ifndef __Lispish_Header_LEXER_TOKEN
 #define __Lispish_Header_LEXER_TOKEN
 
-#include "lexer/token_content.hh"
+#include "lexer/lexeme.hh"
 #include <string>
 
 enum struct TokenType

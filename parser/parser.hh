@@ -2,7 +2,7 @@
 #define __Lispish_Header_PARSER
 
 #include "lexer/token.hh"
-#include "lexer/token_content.hh"
+#include "lexer/lexeme.hh"
 #include "parser/atom.hh"
 #include "parser/list.hh"
 
