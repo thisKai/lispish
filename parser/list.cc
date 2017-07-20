@@ -7,9 +7,9 @@ std::string List::to_string()
     bool first = true;
     std::stringstream stream;
     stream << "list(";
-    for(Atom atom: m_items)
+    for(Node node: m_items)
     {
-        stream << ' ' << atom.to_string() << ' ';
+        stream << ' ' << node.to_string() << ' ';
 
         if(!first) stream << ',';
         first = false;
@@ -18,7 +18,7 @@ std::string List::to_string()
     return stream.str();
 }
 
-List& List::operator<<(Atom rhs)
+List& List::operator<<(Node rhs)
 {
     m_items.push_back(rhs);
     return *this;

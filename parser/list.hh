@@ -3,17 +3,20 @@
 
 #include "parser/atom.hh"
 
+class List; // forward declare List to get around the circular dependency between List and Node
+#include "parser/node.hh"
+
 #include <vector>
 #include <string>
 
 class List
 {
 private:
-    std::vector<Atom> m_items;
+    std::vector<Node> m_items;
 public:
     std::string to_string();
 
-    List& operator<<(Atom);
+    List& operator<<(Node);
 };
 
 #endif

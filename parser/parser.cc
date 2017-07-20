@@ -1,4 +1,5 @@
 #include "parser/parser.hh"
+#include "parser/node.hh"
 
 Parser::Parser(std::vector<Token>& tokens) : m_input(tokens), m_level(0) { }
 
@@ -18,8 +19,8 @@ List Parser::parse()
                 increment();
                 continue;
             default:
-                Atom atom(new Lexeme(current_token().lexeme()));
-                current_list() << atom;
+                Node node(new Atom(new Lexeme(current_token().lexeme())));
+                current_list() << node;
                 increment();
                 continue;
         }

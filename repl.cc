@@ -1,6 +1,7 @@
 #include "lexer/token.hh"
 #include "lexer/lexer.hh"
 #include "parser/list.hh"
+#include "parser/node.hh"
 #include "parser/parser.hh"
 #include "repl.hh"
 
