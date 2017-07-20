@@ -11,20 +11,23 @@ List Parser::parse()
         switch(current_token().type()){
             case  TokenType::OpenParen:
                 begin_list();
+                increment();
                 continue;
             case TokenType::CloseParen:
                 end_list();
+                increment();
                 continue;
             default:
                 Atom atom = current_token().lexeme();
                 current_list() << atom;
+                increment();
                 continue;
         }
     }
     return current_list();
 }
 
-inline Token Parser::current_token() { *m_iterator; }
+inline Token Parser::current_token() { return *m_iterator; }
 
 inline bool Parser::not_eof() { return m_iterator < m_input.end(); }
 
