@@ -18,7 +18,7 @@ List Parser::parse()
                 increment();
                 continue;
             default:
-                Atom atom = current_token().lexeme();
+                Atom atom(new Lexeme(current_token().lexeme()));
                 current_list() << atom;
                 increment();
                 continue;

@@ -8,9 +8,12 @@
 class Atom
 {
 private:
-    Lexeme m_content;
+    Lexeme* m_content;
 public:
-    Atom(Lexeme);
+    Atom(const Atom&);
+    Atom(Lexeme*);
+
+    Lexeme* content() const;
     std::string to_string();
 };
 
