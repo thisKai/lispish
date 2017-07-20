@@ -32,7 +32,7 @@ inline void Parser::increment(size_t) { ++m_iterator; }
 
 List Parser::current_list()
 {
-    m_lists.top();
+    return m_lists.top();
 }
 void Parser::begin_list() {
     List new_list;
