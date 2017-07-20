@@ -13,13 +13,11 @@ TokenContent::TokenContent(long long l_integer)
 }
 TokenContent::TokenContent(long double l_real)
 {
-    m_content = l_real;
-    m_type = Real;
+    real_unsafe(l_real);
 }
 TokenContent::TokenContent(std::string l_other)
 {
-    m_content = l_other;
-    m_type = Other;
+    other_unsafe(l_other);
 }
 
 template <typename T>
