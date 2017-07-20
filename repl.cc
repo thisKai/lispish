@@ -1,5 +1,7 @@
 #include "lexer/token.hh"
 #include "lexer/lexer.hh"
+#include "parser/list.hh"
+#include "parser/parser.hh"
 #include "repl.hh"
 
 #include <iostream>
@@ -17,6 +19,9 @@ ReplResult repl(const char prompt[])
         std::vector<Token> tokens = lexer.lex();
         std::string output = lexer.dump_tokens();
         std::cout << output << std::endl;
+        Parser parser(tokens);
+        List root = parser.parse();
+        std::cout << root.to_string() << std::endl;
 
         add_history(line.c_str());
     }

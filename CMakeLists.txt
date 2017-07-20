@@ -13,11 +13,12 @@ include_directories(/usr/include/readline)
 find_package(Boost)
 
 add_subdirectory(lexer)
+add_subdirectory(parser)
 
 file(GLOB SOURCES "*.cc")
 
 if(Boost_FOUND)
     include_directories(${Boost_INCLUDE_DIRS})
     add_executable(lispish ${SOURCES})
-    target_link_libraries(lispish lispish_lexer readline ${Boost_LIBRARIES})
+    target_link_libraries(lispish lispish_lexer lispish_parser readline ${Boost_LIBRARIES})
 endif()
