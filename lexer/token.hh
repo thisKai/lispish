@@ -1,5 +1,5 @@
-#ifndef __Lispish_Header_TOKEN
-#define __Lispish_Header_TOKEN
+#ifndef __Lispish_Header_LEXER_TOKEN
+#define __Lispish_Header_LEXER_TOKEN
 
 #include "lexer/token_content.hh"
 #include <string>

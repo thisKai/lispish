@@ -1,5 +1,5 @@
-#ifndef __Lispish_Header_TOKEN_CONTENT
-#define __Lispish_Header_TOKEN_CONTENT
+#ifndef __Lispish_Header_LEXER_TOKEN_CONTENT
+#define __Lispish_Header_LEXER_TOKEN_CONTENT
 
 #include <string>
 #include <boost/variant.hpp>
