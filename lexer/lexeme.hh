@@ -2,7 +2,6 @@
 #define __Lispish_Header_LEXER_LEXEME
 
 #include <string>
-#include <boost/variant.hpp>
 
 class Lexeme
 {
@@ -15,31 +14,42 @@ private:
         Other,
     } m_type;
 
-    boost::variant<bool, long long, long double, std::string> m_content;
+    union
+    {
+        long long m_integer;
+        long double m_real;
+        std::string m_other;
+    };
+    void destroy_other();
+    void copy_from(const Lexeme&);
 
 public:
     Lexeme();
+    Lexeme(const Lexeme&);
     Lexeme(long long);
     Lexeme(long double);
     Lexeme(std::string);
+    ~Lexeme();
 
+    Lexeme& operator=(const Lexeme&);
     Lexeme& operator=(const long long&);
     Lexeme& operator=(const long double&);
     Lexeme& operator=(const std::string&);
 
     std::string to_string(bool = false);
 
-    bool is_integer();
-    bool is_real();
-    bool is_other();
+    bool is_empty() const;
+    bool is_integer() const;
+    bool is_real() const;
+    bool is_other() const;
 
-    long long integer_unsafe();
+    long long integer_unsafe() const;
     void integer_unsafe(long long);
 
-    long double real_unsafe();
+    long double real_unsafe() const;
     void real_unsafe(long double);
 
-    std::string other_unsafe();
+    std::string other_unsafe() const;
     void other_unsafe(std::string);
 };
 
