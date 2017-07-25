@@ -110,7 +110,7 @@ void Lexeme::real(long double value)
 std::string Lexeme::other_unsafe() const { return m_other; }
 void Lexeme::other_unsafe(std::string value)
 {
-    m_other = value;
+    new (&m_other) std::string(value);
     m_type = Other;
 }
 void Lexeme::other(std::string value)
