@@ -34,7 +34,7 @@ inline bool Parser::not_eof() { return m_iterator < m_input.end(); }
 
 inline void Parser::increment(size_t amount) { m_iterator += amount; }
 
-List Parser::current_list()
+List& Parser::current_list()
 {
     return m_lists.top();
 }

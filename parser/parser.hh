@@ -22,7 +22,7 @@ private:
 
     inline void increment(size_t = 1);
 
-    List current_list();
+    List& current_list();
     void begin_list();
     void end_list();
 
