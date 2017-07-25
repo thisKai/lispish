@@ -18,8 +18,7 @@ std::string List::to_string()
     return stream.str();
 }
 
-List& List::operator<<(Node rhs)
+void List::push(Node rhs)
 {
     m_items.push_back(rhs);
-    return *this;
 }

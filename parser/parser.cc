@@ -20,7 +20,7 @@ List Parser::parse()
                 continue;
             default:
                 Node node(new Atom(new Lexeme(current_token().lexeme())));
-                current_list() << node;
+                current_list().push(node);
                 increment();
                 continue;
         }
@@ -45,4 +45,6 @@ void Parser::begin_list() {
 void Parser::end_list() {
     List finished_list = current_list();
     m_lists.pop();
+    Node node(finished_list);
+    current_list().push(node);
 }
