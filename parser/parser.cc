@@ -1,7 +1,7 @@
 #include "parser/parser.hh"
 #include "parser/node.hh"
 
-Parser::Parser(std::vector<Token>& tokens) : m_input(tokens), m_level(0) { }
+Parser::Parser(std::vector<Token>& tokens) : m_input(tokens) { }
 
 List Parser::parse()
 {

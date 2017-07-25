@@ -14,7 +14,6 @@ class Parser
 private:
     std::vector<Token> m_input;
     std::vector<Token>::iterator m_iterator;
-    size_t m_level;
     std::stack<List> m_lists;
 
     inline Token current_token();
