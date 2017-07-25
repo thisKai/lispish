@@ -114,12 +114,12 @@ void Lexer::try_parse_number()
     if(is_float)
     {
         type = TokenType::Real;
-        lexeme = std::stold(number_str);
+        lexeme.real(std::stold(number_str));
     }
     else
     {
         type = TokenType::Integer;
-        lexeme = std::stoll(number_str);
+        lexeme.integer(std::stoll(number_str));
     }
     Token token(type, lexeme);
     push_token(token);
