@@ -23,6 +23,15 @@ private:
     void destroy_other();
     void copy_from(const Lexeme&);
 
+    long long integer_unsafe() const;
+    void integer_unsafe(long long);
+
+    long double real_unsafe() const;
+    void real_unsafe(long double);
+
+    std::string other_unsafe() const;
+    void other_unsafe(std::string);
+
 public:
     Lexeme();
     Lexeme(const Lexeme&);
@@ -32,9 +41,6 @@ public:
     ~Lexeme();
 
     Lexeme& operator=(const Lexeme&);
-    Lexeme& operator=(const long long&);
-    Lexeme& operator=(const long double&);
-    Lexeme& operator=(const std::string&);
 
     std::string to_string(bool = false);
 
@@ -43,14 +49,11 @@ public:
     bool is_real() const;
     bool is_other() const;
 
-    long long integer_unsafe() const;
-    void integer_unsafe(long long);
+    void integer(long long);
 
-    long double real_unsafe() const;
-    void real_unsafe(long double);
+    void real(long double);
 
-    std::string other_unsafe() const;
-    void other_unsafe(std::string);
+    void other(std::string);
 };
 
 #endif

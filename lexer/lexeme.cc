@@ -46,7 +46,7 @@ Lexeme::Lexeme(std::string l_other)
 
 void Lexeme::destroy_other()
 {
-    if(m_type == Other)
+    if(is_other())
     {
         m_other.~basic_string<char>();
     }
@@ -86,17 +86,25 @@ bool Lexeme::is_other() const { return m_type == Other; }
 long long Lexeme::integer_unsafe() const { return m_integer; }
 void Lexeme::integer_unsafe(long long value)
 {
-    destroy_other();
     m_integer = value;
     m_type = Integer;
+}
+void Lexeme::integer(long long value)
+{
+    destroy_other();
+    integer_unsafe(value);
 }
 
 long double Lexeme::real_unsafe() const { return m_real; }
 void Lexeme::real_unsafe(long double value)
 {
-    destroy_other();
     m_real = value;
     m_type = Real;
+}
+void Lexeme::real(long double value)
+{
+    destroy_other();
+    real_unsafe(value);
 }
 
 std::string Lexeme::other_unsafe() const { return m_other; }
@@ -105,25 +113,14 @@ void Lexeme::other_unsafe(std::string value)
     m_other = value;
     m_type = Other;
 }
-
+void Lexeme::other(std::string value)
+{
+    destroy_other();
+    other_unsafe(value);
+}
 
 Lexeme& Lexeme::operator=(const Lexeme& original)
 {
     copy_from(original);
-    return *this;
-}
-Lexeme& Lexeme::operator=(const long long& l_integer)
-{
-    integer_unsafe(l_integer);
-    return *this;
-}
-Lexeme& Lexeme::operator=(const long double& l_real)
-{
-    real_unsafe(l_real);
-    return *this;
-}
-Lexeme& Lexeme::operator=(const std::string& l_other)
-{
-    other_unsafe(l_other);
     return *this;
 }
