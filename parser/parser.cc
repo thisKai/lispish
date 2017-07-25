@@ -32,7 +32,7 @@ inline Token Parser::current_token() { return *m_iterator; }
 
 inline bool Parser::not_eof() { return m_iterator < m_input.end(); }
 
-inline void Parser::increment(size_t) { ++m_iterator; }
+inline void Parser::increment(size_t amount) { m_iterator += amount; }
 
 List Parser::current_list()
 {
