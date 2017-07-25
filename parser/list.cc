@@ -9,9 +9,8 @@ std::string List::to_string()
     stream << "list(";
     for(Node node: m_items)
     {
-        stream << ' ' << node.to_string() << ' ';
-
         if(!first) stream << ',';
+        stream << ' ' << node.to_string() << ' ';
         first = false;
     }
     stream << ")";
