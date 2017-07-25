@@ -29,6 +29,7 @@ private:
     inline bool not_eof();
 
     bool is(char);
+    bool isnt(char);
     bool is_digit();
     bool is_digit(char character);
 
@@ -39,6 +40,9 @@ private:
     bool is_ident_char();
 
     void try_parse_ident();
+
+    void skip_rest_of_line();
+
 public:
     Lexer(std::string);
 

@@ -23,6 +23,12 @@ std::vector<Token> Lexer::lex()
             increment();
             continue;
         }
+        // start a comment, skip the rest of the line
+        if(is(';'))
+        {
+            skip_rest_of_line();
+            continue;
+        }
         // if char is a digit
         if(is_digit())
         {
@@ -78,6 +84,7 @@ inline bool Lexer::eof() { return m_iterator >= m_input.end(); }
 inline bool Lexer::not_eof() { return m_iterator < m_input.end(); }
 
 bool Lexer::is(char character) { return current_char() == character; }
+bool Lexer::isnt(char character) { return current_char() != character; }
 bool Lexer::is_digit() { return is_digit(*m_iterator); }
 bool Lexer::is_digit(char character) { return isdigit(character); }
 
@@ -146,4 +153,19 @@ void Lexer::try_parse_ident()
 
     Token token(TokenType::Ident, ident_str);
     push_token(token);
+}
+
+void Lexer::skip_rest_of_line()
+{
+    while(isnt('\n') && not_eof())
+    {
+        increment();
+    }
+    if(is('\n')){
+        increment_line();
+    }
+    if(not_eof())
+    {
+        increment();
+    }
 }
