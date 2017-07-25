@@ -43,7 +43,7 @@ void Parser::begin_list() {
     m_lists.push(new_list);
 }
 void Parser::end_list() {
-    List finished_list = current_list();
+    List* finished_list = new List(current_list());
     m_lists.pop();
     Node node(finished_list);
     current_list().push(node);
