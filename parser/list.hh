@@ -14,7 +14,7 @@ class List
 private:
     std::vector<Node> m_items;
 public:
-    std::string to_string();
+    std::string to_string(bool block = false);
 
     void push(Node);
 };

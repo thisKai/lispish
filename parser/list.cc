@@ -2,18 +2,28 @@
 
 #include <sstream>
 
-std::string List::to_string()
+std::string List::to_string(bool block)
 {
-    bool first = true;
     std::stringstream stream;
-    stream << "list(";
-    for(Node node: m_items)
+    if(block)
     {
-        if(!first) stream << ',';
-        stream << ' ' << node.to_string() << ' ';
-        first = false;
+        for(Node node: m_items)
+        {
+            stream << node.to_string() << std::endl;
+        }
     }
-    stream << ")";
+    else
+    {
+        bool first = true;
+        stream << "list(";
+        for(Node node: m_items)
+        {
+            if(!first && !block) stream << ',';
+            stream << ' ' << node.to_string() << ' ';
+            first = false;
+        }
+        stream << ")";
+    }
     return stream.str();
 }
 

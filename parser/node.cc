@@ -32,14 +32,14 @@ Node::~Node()
     }
 }
 
-std::string Node::to_string()
+std::string Node::to_string(bool block)
 {
     switch(m_type)
     {
         case NodeType::Atom:
             return atom_unsafe()->to_string();
         case NodeType::List:
-            return list_unsafe()->to_string();
+            return list_unsafe()->to_string(block);
         default:
             return "";
     }

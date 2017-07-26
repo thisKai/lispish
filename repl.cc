@@ -28,7 +28,7 @@ ReplResult repl(const char prompt[])
         std::cout << output << std::endl;
         Parser parser(tokens);
         List root = parser.parse();
-        std::cout << root.to_string() << std::endl;
+        std::cout << root.to_string(true) << std::endl;
 
         add_history(line.c_str());
     }

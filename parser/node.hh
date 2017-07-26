@@ -34,7 +34,7 @@ public:
     Node(List*);
     ~Node();
 
-    std::string to_string();
+    std::string to_string(bool block = false);
 
     Atom* atom();
     void atom(Atom*);
