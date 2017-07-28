@@ -9,29 +9,30 @@
 #include <vector>
 #include <stack>
 
-using namespace lexer;
+namespace parser{
+    using namespace lexer;
 
-class Parser
-{
-private:
-    std::vector<Token> m_input;
-    std::vector<Token>::iterator m_iterator;
-    std::stack<List> m_lists;
+    class Parser
+    {
+    private:
+        std::vector<Token> m_input;
+        std::vector<Token>::iterator m_iterator;
+        std::stack<List> m_lists;
 
-    inline Token current_token();
+        inline Token current_token();
 
-    inline bool not_eof();
+        inline bool not_eof();
 
-    inline void increment(size_t = 1);
+        inline void increment(size_t = 1);
 
-    List& current_list();
-    void begin_list();
-    void end_list();
+        List& current_list();
+        void begin_list();
+        void end_list();
 
-public:
-    Parser(std::vector< Token >&);
+    public:
+        Parser(std::vector< Token >&);
 
-    List parse();
-};
-
+        List parse();
+    };
+}
 #endif

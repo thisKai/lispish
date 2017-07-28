@@ -2,32 +2,34 @@
 
 #include <sstream>
 
-std::string List::to_string(bool block)
-{
-    std::stringstream stream;
-    if(block)
+namespace parser{
+    std::string List::to_string(bool block)
     {
-        for(Node node: m_items)
+        std::stringstream stream;
+        if(block)
         {
-            stream << node.to_string() << std::endl;
+            for(Node node: m_items)
+            {
+                stream << node.to_string() << std::endl;
+            }
         }
-    }
-    else
-    {
-        bool first = true;
-        stream << "list(";
-        for(Node node: m_items)
+        else
         {
-            if(!first && !block) stream << ',';
-            stream << ' ' << node.to_string() << ' ';
-            first = false;
+            bool first = true;
+            stream << "list(";
+            for(Node node: m_items)
+            {
+                if(!first && !block) stream << ',';
+                stream << ' ' << node.to_string() << ' ';
+                first = false;
+            }
+            stream << ")";
         }
-        stream << ")";
+        return stream.str();
     }
-    return stream.str();
-}
 
-void List::push(Node rhs)
-{
-    m_items.push_back(rhs);
+    void List::push(Node rhs)
+    {
+        m_items.push_back(rhs);
+    }
 }

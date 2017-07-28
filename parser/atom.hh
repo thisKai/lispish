@@ -5,18 +5,19 @@
 
 #include <string>
 
-using namespace lexer;
+namespace parser{
+    using namespace lexer;
 
-class Atom
-{
-private:
-    Lexeme* m_content;
-public:
-    Atom(const Atom&);
-    Atom(Lexeme*);
+    class Atom
+    {
+    private:
+        Lexeme* m_content;
+    public:
+        Atom(const Atom&);
+        Atom(Lexeme*);
 
-    Lexeme* content() const;
-    std::string to_string();
-};
-
+        Lexeme* content() const;
+        std::string to_string();
+    };
+}
 #endif

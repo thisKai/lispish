@@ -10,6 +10,9 @@
 #include <readline/readline.h>
 #include <readline/history.h>
 
+using namespace lexer;
+using namespace parser;
+
 ReplResult repl(const char prompt[])
 {
     std::string line;
