@@ -6,6 +6,8 @@
 class Node; // forward declare List to get around the circular dependency between List and Node
 #include "parser/list.hh"
 
+using namespace lexer;
+
 enum struct NodeType
 {
     Empty,

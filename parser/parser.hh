@@ -9,6 +9,8 @@
 #include <vector>
 #include <stack>
 
+using namespace lexer;
+
 class Parser
 {
 private:

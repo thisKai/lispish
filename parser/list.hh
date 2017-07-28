@@ -9,6 +9,8 @@ class List; // forward declare List to get around the circular dependency betwee
 #include <vector>
 #include <string>
 
+using namespace lexer;
+
 class List
 {
 private:

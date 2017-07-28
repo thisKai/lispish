@@ -5,6 +5,8 @@
 
 #include <string>
 
+using namespace lexer;
+
 class Atom
 {
 private:
